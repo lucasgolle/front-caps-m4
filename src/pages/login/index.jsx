@@ -7,6 +7,7 @@ import Input from "../../components/input";
 import Logo from "../../components/logo";
 import Button from "../../components/button";
 import Banner from "../../assets/bannerSolid2.png";
+import { defaultAnimation, defaultTransition } from "../../utils/defaultMotion";
 
 const LoginPage = () => {
   const schema = yup.object().shape({
@@ -23,7 +24,7 @@ const LoginPage = () => {
   });
 
   return (
-    <Container>
+    <Container animate={defaultAnimation} transition={defaultTransition}>
       <BackgroundDesktop>
         <img src={Banner} alt="Imagem decorativa produtos culinários" />
       </BackgroundDesktop>

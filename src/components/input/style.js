@@ -8,6 +8,7 @@ export const Container = styled.section `
     span {
       color: #D90429;
       width: 20px;
+      width: 8rem;
     }
   }
 `
@@ -23,7 +24,7 @@ export const InputStyled = styled.div`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 5px;
   margin-bottom: 2rem;
-  padding-left: 1rem;
+  padding-left: 0.6rem;
 
   input {
     background: transparent;
@@ -37,6 +38,7 @@ export const InputStyled = styled.div`
 
     &::placeholder {
       color: #8d99ae;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -44,4 +46,5 @@ export const InputStyled = styled.div`
 export const Label = styled.label`
   color: var(--title);
   margin-left: 0.3rem;
+  margin-right: 0.3rem;
 `;
