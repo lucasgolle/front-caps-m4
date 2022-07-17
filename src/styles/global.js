@@ -28,6 +28,7 @@ export const GlobalStyle = createGlobalStyle`
   }
   body {
     line-height: 1;
+    overflow-x: hidden;
   }
   ol, ul {
     list-style: none;
@@ -44,7 +45,6 @@ export const GlobalStyle = createGlobalStyle`
     border-collapse: collapse;
     border-spacing: 0;
   }
-  // css global
 
   :root {
     --primary-color: #2B2D42;
@@ -59,7 +59,7 @@ export const GlobalStyle = createGlobalStyle`
     --quaternary-color-1: #4AD44A;
     --quaternary-color-2: #007300;
 
-    --title: #170000;
+    --title: #000000;
     --subtitle: #271313;
     --text: #342C2C;
 
@@ -102,15 +102,13 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--subtitle);
   }
 
-  h1 { font: var(--title-1); }
-  h2 { font: var(--title-2); }
-  h3 { font: var(--title-3); }
-  h4 { font: var(--title-4); }
-  body input button { font: var(--paragraph); }
-  strong { font: 700 1rem 'Ubuntu', sans-serif; }
-
   button {
     cursor: pointer;
+    background-color: var(--primary-color);
+
+    &:hover {
+      background-color: var(--primary-color-1);
+    }
   }
 
   ::-moz-selection {
