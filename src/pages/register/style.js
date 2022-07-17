@@ -1,6 +1,16 @@
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { motion } from 'framer-motion';
 
+const appearFromLeft = keyframes`
+    from{
+        opacity: 0;
+        transform: translateX(-50px)
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px)
+    }
+`;
 export const Container = styled(motion.div)`
   display: flex;
   align-items: center;
@@ -10,6 +20,7 @@ export const Container = styled(motion.div)`
   max-height: 100vh;
 `;
 
+
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -18,7 +29,8 @@ export const Form = styled.form`
   padding: 1rem;
   margin: 0 auto;
   width: 320px;
-
+  animation: ${appearFromLeft} 1s;
+  
   section {
     display: flex;
     flex-wrap: wrap;

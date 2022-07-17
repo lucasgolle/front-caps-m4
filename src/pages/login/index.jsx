@@ -8,6 +8,9 @@ import Logo from "../../components/logo";
 import Button from "../../components/button";
 import Banner from "../../assets/bannerSolid2.png";
 import { defaultAnimation, defaultTransition } from "../../utils/defaultMotion";
+import { motion, useAnimation } from "framer-motion";
+import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 
 const LoginPage = () => {
   const schema = yup.object().shape({
@@ -23,6 +26,28 @@ const LoginPage = () => {
     resolver: yupResolver(schema),
   });
 
+  const [inViewRef3, inView3] = useInView({
+    threshold: 0.2,
+  });
+
+  const animation4 = useAnimation();
+
+  useEffect(() => {
+    if (inView3) {
+      animation4.start({
+        y: 0,
+        transition: {
+          type: "spring",
+          duration: 4,
+          bounce: 0.4,
+        },
+      });
+    }
+    if (!inView3) {
+      animation4.start({ y: "-50vh" });
+    }
+  }, [inView3]);
+
   return (
     <Container animate={defaultAnimation} transition={defaultTransition}>
       <BackgroundDesktop>
@@ -30,7 +55,9 @@ const LoginPage = () => {
       </BackgroundDesktop>
       <Form onSubmit={handleSubmit(console.log("oi"))}>
         <Logo />
-        <h1>Faça seu Login aqui !</h1>
+        <motion.h1 ref={inViewRef3} animate={animation4}>
+          Faça seu Login aqui !
+        </motion.h1>
         <Input
           label="Email"
           type="email"
@@ -52,7 +79,7 @@ const LoginPage = () => {
         <Button children="Logar" type="submit" />
 
         <p>
-          Não possui conta? <Link to="/">Registre-se</Link>
+          Não possui conta? <Link to="/register">Registre-se</Link>
         </p>
       </Form>
     </Container>

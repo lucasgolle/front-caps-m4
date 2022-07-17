@@ -26,6 +26,7 @@ export const InputStyled = styled.div`
   margin-bottom: 2rem;
   padding-left: 0.6rem;
 
+
   input {
     background: transparent;
     position: absolute;
@@ -35,6 +36,7 @@ export const InputStyled = styled.div`
     font-size: 1rem;
     color: var(--title);
     max-width: max-content;
+    height: 3.5rem;
 
     &::placeholder {
       color: #8d99ae;

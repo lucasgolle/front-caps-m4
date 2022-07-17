@@ -35,6 +35,7 @@ export const Form = styled.form`
     a {
       text-decoration: none;
       color: var(--primary-color-1);
+      font-weight: bold;
       &:hover {
         color: #006d77;
       }
@@ -57,3 +58,4 @@ export const BackgroundDesktop = styled.div`
     background-color: var(--primary-color);
   }
 `;
+
