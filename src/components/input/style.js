@@ -4,10 +4,10 @@ export const Container = styled.section `
   display: flex;
   flex-direction: column;
   width: 100%;
-  justify-content: flex-start;
   div {
     span {
       color: #D90429;
+      width: 20px;
     }
   }
 `
@@ -33,14 +33,10 @@ export const InputStyled = styled.div`
     width: 100%;
     font-size: 1rem;
     color: var(--title);
+    max-width: max-content;
 
     &::placeholder {
       color: #8d99ae;
-    }
-
-    &:focus-within {
-      &::placeholder {
-      }
     }
   }
 `;

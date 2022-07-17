@@ -72,6 +72,7 @@ export const GlobalStyle = createGlobalStyle`
     --paragraph: 400 1rem 'Roboto',
     --caption: 500 0.75rem 'Roboto',
     --detail: 400 0.625rem 'Roboto',
+  }
 
   html {
     font-size: 87.5%;
@@ -88,10 +89,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: var(--background);
-  }
-
-  body {
-    color: var(--text); 
+    color: var(--text);
   }
 
   h1, h2 {
@@ -120,5 +118,4 @@ export const GlobalStyle = createGlobalStyle`
     color: var(--primary-color);
     background: var(--secondary-color-1);
   }
-}
 `;

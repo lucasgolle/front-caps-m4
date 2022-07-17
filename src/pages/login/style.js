@@ -2,7 +2,11 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100vw;
+  height: 100vh;
+  max-width: 100vw;
   max-height: 100vh;
 `;
 
@@ -12,6 +16,7 @@ export const Form = styled.form`
   align-items: center;
   justify-content: center;
   padding: 1rem;
+  margin: 0 auto;
   width: 320px;
 
   h1 {
@@ -45,19 +50,9 @@ export const BackgroundDesktop = styled.div`
   }
 
   @media (min-width: 1024px) {
-    display: block;
+    display: flex;
     width: 50vw;
     height: 100vh;
     background-color: var(--primary-color);
-  }
-`;
-export const ContainerForm = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100%;
-  @media (min-width: 1024px) {
-    width: 50vw;
   }
 `;
