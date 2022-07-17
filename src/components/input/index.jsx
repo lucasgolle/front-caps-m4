@@ -9,7 +9,7 @@ const Input = ({ label, name, register, error = "", ...rest }) => {
           {!!error && <span> - {error}</span>}
         </div>
         <InputStyled>
-          <input {...rest} {...register(name)} />
+          <input {...rest} {...register(name)}/>
         </InputStyled>
       </Container>
     </>
