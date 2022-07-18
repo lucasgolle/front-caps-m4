@@ -46,8 +46,8 @@ export const IMGDesktopTitle = styled.img`
 `;
 
 export const MenuMobile = styled.img`
-    height: 3em;
-    width: 2.2em;
+  height: 3em;
+  width: 2.2em;
   @media (min-width: 1024px) {
     display: none;
   }
