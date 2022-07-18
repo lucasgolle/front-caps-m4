@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 const appearFromLeft = keyframes`
     from{
@@ -20,7 +20,6 @@ export const Container = styled(motion.div)`
   max-height: 100vh;
 `;
 
-
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
@@ -30,7 +29,7 @@ export const Form = styled.form`
   margin: 0 auto;
   width: 320px;
   animation: ${appearFromLeft} 1s;
-  
+
   section {
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +38,7 @@ export const Form = styled.form`
     column-count: 2;
 
     section {
-        width: 140px;
+      width: 140px;
     }
   }
 
@@ -48,13 +47,13 @@ export const Form = styled.form`
     text-align: center;
     margin-bottom: 30px;
     font-size: 2rem;
-    font-family: "Itim";
+    font-family: var(--title-1);
   }
 
   p {
     color: var(--title);
     margin-top: 1rem;
-    a  {
+    a {
       text-decoration: none;
       color: var(--primary-color-1);
       font-weight: bold;

@@ -26,7 +26,7 @@ export const Form = styled.form`
     margin-bottom: 60px;
     margin-top: 46px;
     font-size: 2rem;
-    font-family: "Itim";
+    font-family: var(--title-1);
   }
 
   p {
