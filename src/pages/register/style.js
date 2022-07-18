@@ -54,11 +54,12 @@ export const Form = styled.form`
   p {
     color: var(--title);
     margin-top: 1rem;
-    a {
+    a  {
       text-decoration: none;
       color: var(--primary-color-1);
+      font-weight: bold;
       &:hover {
-        color: #006d77;
+        color: var(--title);
       }
     }
   }

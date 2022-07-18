@@ -37,7 +37,7 @@ export const Form = styled.form`
       color: var(--primary-color-1);
       font-weight: bold;
       &:hover {
-        color: #006d77;
+        color: var(--title);
       }
     }
   }
