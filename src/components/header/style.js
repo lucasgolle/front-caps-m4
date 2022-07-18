@@ -8,6 +8,7 @@ export const Container = styled.header`
   position: fixed;
   justify-content: space-between;
   align-items: center;
+  z-index: 20;
   background-color: var(--primary-color);
 
   svg {
