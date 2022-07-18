@@ -17,7 +17,7 @@ export const ShowcaseProvider = ({ children }) => {
   };
 
   return (
-    <ShowcaseContext.Provider value={{ listProducts,getProducts }}>
+    <ShowcaseContext.Provider value={{ listProducts, getProducts }}>
       {children}
     </ShowcaseContext.Provider>
   );
