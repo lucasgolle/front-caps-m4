@@ -51,13 +51,8 @@ export const GlobalStyle = createGlobalStyle`
     --secondary-color: #FFDDD2;
     --tertiary-color: #EDF2F4;
     --primary-color-1: #E39774;
-    --primary-color-2: #900000;
+    --primary-color-2: #D90429;
     --secondary-color-1: #FFA459;
-    --secondary-color-2: #904100;
-    --tertiary-color-1: #3BA9A9;
-    --tertiary-color-2: #005656;
-    --quaternary-color-1: #4AD44A;
-    --quaternary-color-2: #007300;
 
     --title: #000000;
     --subtitle: #271313;

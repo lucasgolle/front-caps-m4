@@ -6,7 +6,7 @@ export const Container = styled.section `
   width: 100%;
   div {
     span {
-      color: #D90429;
+      color: var(--primary-color-2);
       width: 20px;
       width: 8rem;
     }
