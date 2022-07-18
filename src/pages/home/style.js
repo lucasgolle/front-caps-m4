@@ -67,9 +67,14 @@ export const ListItem = styled.li`
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 
+  image {
+    width: 237px;
+    height: 163px;
+  }
+
   @media (min-width: 1024px) {
     flex-direction: row;
     margin-top: 19px;
-    padding: 19px 38px;
+    /* padding: 0px 38px; */
   }
 `;
