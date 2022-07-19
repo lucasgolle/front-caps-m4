@@ -6,7 +6,7 @@ import {
 } from "./style";
 import solidDesktop from "../../assets/SOLIDCONTROLTITLE.png";
 import solidMobile from "../../assets/SOLID.png";
-import { LogOut } from "react-feather";
+import { LogOut, ShoppingCart } from "react-feather";
 import Menu from "../../assets/menuSolid.svg"
 
 const Header = () => {
@@ -15,7 +15,10 @@ const Header = () => {
       <MenuMobile src={Menu} alt="ícono menu pesquisa"/>
       <IMGMobileTitle src={solidMobile} alt="Nome da marca, solid control" />
       <IMGDesktopTitle src={solidDesktop} alt="Nome da marca, solid control" />
+      <div>
+      <ShoppingCart />
       <LogOut />
+      </div>
     </Container>
   );
 };

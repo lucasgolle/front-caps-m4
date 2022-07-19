@@ -15,6 +15,11 @@ export const Container = styled.header`
     color: #ffff;
     cursor: pointer;
     display: none;
+    margin-left: 60px;
+  }
+
+  div {
+    display: flex;
   }
 
   @media (min-width: 1024px) {
