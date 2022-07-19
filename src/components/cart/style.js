@@ -64,6 +64,7 @@ export const Container = styled.div`
     padding-top: 0;
     padding-left: 4rem;
     z-index: 35;
+    position: fixed;
     animation: ${appearFromLeft} 1s;
 
     div {
