@@ -62,6 +62,11 @@ export const Form = styled.form`
       }
     }
   }
+
+  label {
+    font-family: var(--paragraph);
+    font-weight: 400;
+  }
 `;
 
 export const BackgroundDesktop = styled.div`
@@ -77,5 +82,53 @@ export const BackgroundDesktop = styled.div`
     width: 50vw;
     height: 100vh;
     background-color: var(--primary-color);
+  }
+`;
+
+export const InputCEP = styled.input`
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+  height: 3.5rem;
+  background: #ffffff;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-bottom: 2rem;
+  padding-left: 0.6rem;
+  outline: none;
+  width: 100%;
+  font-size: 1rem;
+  color: var(--title);
+  max-width: max-content;
+  -webkit-appearance: none;
+  height: 3.5rem;
+
+  text {
+    width: 100%;
+  }
+
+  &::placeholder {
+    color: #8d99ae;
+    font-size: 0.8rem;
+  }
+
+ 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+`;
+
+export const SpanCEP = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  span {
+    margin-left: 5px;
+    font-size: 1rem;
+    font-weight: 700;
   }
 `;

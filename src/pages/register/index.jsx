@@ -2,29 +2,109 @@ import { defaultAnimation, defaultTransition } from "../../utils/defaultMotion";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-import { BackgroundDesktop, Container, Form } from "./style";
+import axios from "axios";
+import { Link, useNavigate } from "react-router-dom";
+import { BackgroundDesktop, Container, Form, InputCEP, SpanCEP } from "./style";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import Banner from "../../assets/bannerSolid2.png";
+import api from "../../services/api";
+import { useEffect, useState } from "react";
 
 const Register = () => {
+  const history = useNavigate();
+
   const schema = yup.object().shape({
-    email: yup.string().email("E-mail inválido").required("Email obrigatório"),
-    password: yup.string().required("Senha obrigatória"),
+    name: yup.string().required("Campo obrigatório"),
+    email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
+    zip_code: yup.string().required("Obrigatório"),
+    street: yup.string().required(""),
+    number: yup
+      .string()
+      .required("Obrigatório")
+      .max(8, "Máximo de 8 caracteres"),
+    state: yup.string().required(""),
+    city: yup.string().required(""),
+    password: yup
+      .string()
+      .required("Campo obrigatório")
+      .min(6, "Mínimo de 6 caracteres")
+      .matches(
+        /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$ %^&*-]).{8,}$/,
+        "Senha deve conter ao menos 1 letra maiúscula, 1 letra minúscula, 1 número e 1 caractere especial"
+      ),
   });
 
   const {
     register,
     handleSubmit,
+    setValue,
     formState: { errors },
   } = useForm({
     resolver: yupResolver(schema),
   });
 
+  const Register = ({
+    name,
+    email,
+    password,
+    zip_code,
+    street,
+    number,
+    city,
+    state,
+  }) => {
+    const user = {
+      name,
+      email,
+      password,
+      zip_code,
+      street,
+      number,
+      city,
+      state,
+    };
+
+    api
+      .post("/users/register", user)
+      .then((_) => {
+        history("/login");
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
+  
+  const zipCodeSearch = (event) => {
+    const zipCode = event.target.value.replace(/\D/g, "");
+    axios
+    .get(`https://viacep.com.br/ws/${zipCode}/json/`)
+    .then((response) => {
+      const address = response.data;
+      setValue("street", address.logradouro);
+      setValue("city", address.localidade);
+      setValue("state", address.uf);
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error, "CEP inválido");
+    });
+  };
+
+  const [cep, setCEP] = useState("")
+
+  useEffect(() => {
+
+    if (cep.length === 7) {
+       zipCodeSearch();
+    }
+   
+   }, [cep])
+
   return (
     <Container animate={defaultAnimation} transition={defaultTransition}>
-      <Form onSubmit={handleSubmit(console.log("oi"))}>
+      <Form onSubmit={handleSubmit(Register)}>
         <h1>Registre-se</h1>
         <Input
           label="Nome"
@@ -41,24 +121,27 @@ const Register = () => {
           placeholder="Digite seu email"
           name="email"
           register={register}
-          error={errors.password?.message}
+          error={errors.email?.message}
         ></Input>
 
         <section>
-          <section>
-            <Input
+
+          <SpanCEP>
+            <span>CEP</span>
+            <InputCEP
               type="number"
-              label="CEP"
               placeholder="Digite seu CEP"
               name="zip_code"
-              register={register}
+              {...register("zip_code")}
+              onBlur={zipCodeSearch}
               error={errors.zip_code?.message}
-            ></Input>
-          </section>
+            ></InputCEP>
+          </SpanCEP>
           <section>
             <Input
               type="text"
               label="Estado"
+              disabled
               placeholder="Digite seu Estado"
               name="state"
               register={register}
@@ -68,6 +151,7 @@ const Register = () => {
           <section>
             <Input
               type="text"
+              disabled
               label="Endereço"
               placeholder="Digite seu endereço"
               name="street"
@@ -85,15 +169,28 @@ const Register = () => {
               error={errors.number?.message}
             ></Input>
           </section>
+          <section>
+            <Input
+              type="text"
+              label="Complemento"
+              placeholder="Seu complemento"
+              name="complement"
+              register={register}
+              error={errors.complement?.message}
+            ></Input>
+          </section>
+          <section>
+            <Input
+              type="text"
+              label="Cidade"
+              disabled
+              placeholder="Seu cidade"
+              name="city"
+              register={register}
+              error={errors.city?.message}
+            ></Input>
+          </section>
         </section>
-        <Input
-          type="text"
-          label="Complemento"
-          placeholder="Digite seu complemento"
-          name="city"
-          register={register}
-          error={errors.number?.message}
-        ></Input>
         <Input
           type="password"
           label="Senha"

@@ -107,7 +107,6 @@ export const ListItem = styled.li`
 
   p {
     font-size: 1.5rem;
-    font-family: var(--title-2);
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -130,5 +129,82 @@ export const ListItem = styled.li`
   }
 
   @media (min-width: 1024px) {
+    p, h2 {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
+  }
+`;
+
+export const FooterHome = styled.footer`
+  width: 100vw;
+  height: 14rem;
+  padding: 1rem;
+  display: flex;
+  position: fixed;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 20;
+  position: absolute;
+  background-color: var(--primary-color);
+
+  p {
+    color: white;
+    font-size: 0.7rem;
+    width: 220px;
+  }
+
+  @media (min-width: 1024px) {
+  padding: 5rem;
+
+  p {
+    font-size: 1rem;
+    width: 100%;
+
+  }
+
+  }
+
+`
+export const Devs = styled.section`
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 8rem;
+  flex-direction: column;
+  margin-left: 30px;
+  width: 100%;
+
+  div {
+    display: flex;
+    align-items: center
+  }
+
+  h2 {
+    font-size: 0.7rem;
+    color: white;
+    margin: 0.4rem;
+  }
+
+  svg {
+    width: 1rem;
+    height: 1rem;
+    color: white;
+  }
+
+  a + a {
+    margin-left: 0.3rem;
+  }
+
+  @media (min-width: 1024px) {
+    h2 {
+    font-size: 0.9rem;
+
+    }
   }
 `;
