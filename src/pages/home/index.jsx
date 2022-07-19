@@ -60,60 +60,20 @@ const HomePage = () => {
         <DivShowcase>
           <ListShowcase>
             {searchFilter.map((product, index) => (
-              <ListItem>
-                <image src={product.image} />
-                <p>{product.name}</p>
+              <ListItem key={index}>
+                <img src={coquinha} alt={product.name} />
+                <h2>{product.name}</h2>
+                <p>{product.description}</p>
+                <span>
+                  {product.price.toLocaleString("pt-BR", {
+                    style: "currency",
+                    currency: "BRL",
+                    minimumFractionDigits: 2,
+                  })}
+                </span>
+                <Button onClick={() => addCart(product)}>Comprar</Button>
               </ListItem>
             ))}
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
           </ListShowcase>
         </DivShowcase>
         {showModal && <Cart closeCart={changeModalCart} />}
