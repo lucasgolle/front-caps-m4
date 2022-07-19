@@ -58,6 +58,8 @@ export const ListShowcase = styled.ul`
 
 export const ListItem = styled.li`
   display: flex;
+  justify-content: center;
+  align-item: center;
   flex-direction: column;
   flex-wrap: wrap;
   margin-top: 197px;
@@ -70,6 +72,12 @@ export const ListItem = styled.li`
   image {
     width: 237px;
     height: 163px;
+  }
+
+  p {
+    font-size: 20px;
+    color: #000;
+    font-weight: 400;
   }
 
   @media (min-width: 1024px) {
