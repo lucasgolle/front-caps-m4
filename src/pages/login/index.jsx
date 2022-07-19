@@ -14,7 +14,7 @@ import { useInView } from "react-intersection-observer";
 
 const LoginPage = () => {
   const schema = yup.object().shape({
-    email: yup.string().email("E-mail inválido").required("Email obrigatório"),
+    email: yup.string().email("E-mail inválido").required("E-mail obrigatório"),
     password: yup.string().required("Senha obrigatória"),
   });
 
@@ -56,7 +56,7 @@ const LoginPage = () => {
       <Form onSubmit={handleSubmit(console.log("oi"))}>
         <Logo />
         <motion.h1 ref={inViewRef3} animate={animation4}>
-          Faça seu Login aqui !
+          Faça seu login aqui!
         </motion.h1>
         <Input
           label="Email"
@@ -79,7 +79,7 @@ const LoginPage = () => {
         <Button children="Logar" type="submit" />
 
         <p>
-          Não possui conta? <Link to="/register">Registre-se</Link>
+          Não possui conta? <Link to="/register">Registre-se</Link>.
         </p>
       </Form>
     </Container>
