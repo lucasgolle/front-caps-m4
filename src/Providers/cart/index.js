@@ -5,20 +5,20 @@ export const CartContext = createContext([]);
 
 export const CartProvider = ({ children }) => {
   const [cart, setCart] = useState(
-    JSON.parse(localStorage.getItem("@DEStoq:cart")) || []
+    JSON.parse(localStorage.getItem("@Solid:cart")) || []
   );
 
   const addCart = (product) => {
     product.uniqueId = uuidv4();
     product.quantity = 1;
 
-    const list = JSON.parse(localStorage.getItem("@DEStoq:cart")) || [];
+    const list = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
     const finded = list.find((item) => item.id === product.id);
 
     if (finded === undefined) {
       list.push(product);
       setCart(list);
-      localStorage.setItem("@DEStoq:cart", JSON.stringify(list));
+      localStorage.setItem("@Solid:cart", JSON.stringify(list));
     } else {
       const mapList = list.map((item) => {
         if (item.id === finded.id) {
@@ -27,7 +27,8 @@ export const CartProvider = ({ children }) => {
         return item;
       });
       setCart(mapList);
-      localStorage.setItem("@DEStoq:cart", JSON.stringify(mapList));
+      localStorage.setItem("@Solid:cart", JSON.stringify(mapList));
+      console.log(mapList);
     }
   };
 
@@ -35,11 +36,11 @@ export const CartProvider = ({ children }) => {
     const newCart = cart.filter((item) => item.uniqueId !== id);
 
     setCart(newCart);
-    localStorage.setItem("@DEStoq:cart", JSON.stringify(newCart));
+    localStorage.setItem("@Solid:cart", JSON.stringify(newCart));
   };
 
   return (
-    <CartContext.Provider value={{ cart, addCart, deleteCart,setCart }}>
+    <CartContext.Provider value={{ cart, addCart, deleteCart, setCart }}>
       {children}
     </CartContext.Provider>
   );
