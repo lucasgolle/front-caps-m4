@@ -4,10 +4,10 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [userLogin, setUserLogin] = useState(
-    JSON.parse(localStorage.getItem("@Solid:user")) || null
+    JSON.parse(localStorage.getItem("@Solid:token")) || null
   );
   useEffect(() => {
-    setUserLogin(localStorage.getItem("@DEStoq:user"));
+    setUserLogin(localStorage.getItem("@Solid:token"));
   }, []);
 
   return (

@@ -20,12 +20,7 @@ const LoginPage = () => {
     api
       .post("/users/login", data)
       .then((res) => {
-        console.log(res.data);
-        localStorage.setItem(
-          "@Solid:token",
-          JSON.stringify(res.data.accessToken)
-        );
-        localStorage.setItem("@Solid:user", JSON.stringify(res.data.user));
+        localStorage.setItem("@Solid:token", JSON.stringify(res.data.token));
 
         return navigate("/");
       })
