@@ -140,7 +140,7 @@ const FormRegister = () => {
           </section>
           <section>
             <Input
-              type="number"
+              type="text"
               label="Nº"
               placeholder="digite seu número"
               name="number"
@@ -151,8 +151,8 @@ const FormRegister = () => {
         </section>
         <Input
           type="text"
-          label="Complemento"
-          placeholder="digite seu complemento"
+          label="Cidade"
+          placeholder="digite sua cidade"
           name="city"
           register={register}
           error={errors.number?.message}
