@@ -14,8 +14,7 @@ export const Container = styled.header`
   svg {
     color: #ffff;
     cursor: pointer;
-    display: none;
-    margin-left: 60px;
+    margin-left: 20px;
   }
 
   div {
@@ -30,6 +29,7 @@ export const Container = styled.header`
       display: block;
       height: 3em;
       width: 2.2em;
+      margin-left: 60px;
     }
   }
 `;
@@ -51,8 +51,8 @@ export const IMGDesktopTitle = styled.img`
 `;
 
 export const MenuMobile = styled.img`
-    height: 3em;
-    width: 2.2em;
+  height: 3em;
+  width: 2.2em;
   @media (min-width: 1024px) {
     display: none;
   }

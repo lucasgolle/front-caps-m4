@@ -29,6 +29,7 @@ export const GlobalStyle = createGlobalStyle`
   body {
     line-height: 1;
     overflow-x: hidden;
+    width: 100vw;
   }
   ol, ul {
     list-style: none;

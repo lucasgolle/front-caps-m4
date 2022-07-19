@@ -91,7 +91,7 @@ export const ListItem = styled.li`
   background-color: #fff;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
-  transition: 1s;
+  transition: 0.6s;
 
   img {
     width: 100%;
@@ -121,12 +121,12 @@ export const ListItem = styled.li`
   }
 
   &:hover {
-    width: 280px;
-    transition: 1s;
+    width: 278px;
+    transition: 0.6s;
     box-shadow: 14px 14px 20px #111111;
     margin-left: 15px;
-    margin-right: 15px;
-    margin-top: -15px;
+    margin-right: 17px;
+    margin-top: -10px;
   }
 
   @media (min-width: 1024px) {

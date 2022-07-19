@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
-import { useContext, useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useContext, useState } from "react";
 import { ShowcaseContext } from "../../Providers/showcase/";
 import { CartContext } from "../../Providers/cart";
 import { useInputHome } from "../../Providers/SearchHome";
@@ -13,7 +13,6 @@ import {
   ListShowcase,
   ListItem,
 } from "./style";
-import Banner from "../../assets/bannerSolid2.png";
 import Button from "../../components/button";
 import Header from "../../components/header";
 import { defaultAnimation, defaultTransition } from "../../utils/defaultMotion";
@@ -23,21 +22,26 @@ const HomePage = () => {
   const { listProducts } = useContext(ShowcaseContext);
   const { addCart } = useContext(CartContext);
   const { inputSearch } = useInputHome();
-  const [showModal, setShowModal] = useState(true);
-
-  const changeStateCart = () => {
+  const [showModal, setShowModal] = useState(false);
+  const navigate = useNavigate();
+  
+  const changeModalCart = () => {
     setShowModal(!showModal);
   };
-
+  
   const searchFilter = listProducts.filter(
     (product) =>
-      product.name.toLowerCase().includes(inputSearch.toLowerCase()) ||
-      product.category.toLowerCase().includes(inputSearch.toLowerCase())
-  );
+    product.name.toLowerCase().includes(inputSearch.toLowerCase()) ||
+    product.category.toLowerCase().includes(inputSearch.toLowerCase())
+    );
+
+    const goLogin = () => {
+      return navigate('/login', { replace: true })
+    }
 
   return (
     <>
-      <Header />
+      <Header goLogin={goLogin} showCart={changeModalCart}/>
       <Container animate={defaultAnimation} transition={defaultTransition}>
         <Search />
         <InputSearch placeholder="Digite sua pesquisa" />
@@ -72,7 +76,7 @@ const HomePage = () => {
             </ListItem>
           </ListShowcase>
         </DivShowcase>
-        {/* {showModal && <Cart />} */}
+        {showModal && <Cart closeCart={changeModalCart}/>}
       </Container>
     </>
   );
