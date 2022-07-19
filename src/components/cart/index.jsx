@@ -20,7 +20,47 @@ const Cart = ({ closeCart }) => {
   // const decodedToken = decodeToken(tokenUser);
   const navigate = useNavigate();
   const { cart, deleteCart, setCart } = useContext(CartContext);
-  const [userData, setUserData] = useState({});
+
+  // useEffect(() => {
+  //   getUser();
+  // });
+  // const getUser = () => {
+  //   if (decodedToken) {
+  //     api.get(`/users/${decodedToken.id}`).then((resp) => {
+  //       setUserData(resp.data);
+  //     });
+  //   }
+  // };
+  // console.log("userData", userData);
+
+  const getOrder = () => {
+    const cartItems = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
+    const ticketData = {
+      ticketProducts: [...cartItems],
+      status: "Realizado",
+    };
+
+    if (tokenUser && cartItems?.length === 0) {
+      console.log("carrinho vazio!");
+    }
+
+    if (tokenUser && cartItems.length !== 0) {
+      api
+        .post("/tickets", ticketData, {
+          headers: { Authorization: `Bearer ${tokenUser}` },
+        })
+        .then((resp) => {
+          if (tokenUser) {
+            localStorage.removeItem("@Solid:cart");
+            setCart([]);
+            navigate("/login");
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+  };
 
   const sum = cart.reduce((previous, current) => {
     return previous + current.price * current.quantity;
@@ -59,7 +99,7 @@ const Cart = ({ closeCart }) => {
           </ListShowcase>
         </DivShowcase> */}
         <div>
-          <Button>Finalizar compra</Button>
+          <Button onClick={getOrder}>Finalizar compra</Button>
           <Button onClick={closeCart}>Continuar comprando</Button>
         </div>
       </Container>
