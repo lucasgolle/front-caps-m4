@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 const appearFromLeft = keyframes`
     from{
         opacity: 0;
-        transform: translateX(2000px)
+        transform: translateX(500px)
     }
     to{
         opacity: 1;
