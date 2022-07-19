@@ -30,6 +30,7 @@ export const GlobalStyle = createGlobalStyle`
     line-height: 1;
     overflow-x: hidden;
     width: 100vw;
+    font-family: "Roboto";
   }
   ol, ul {
     list-style: none;

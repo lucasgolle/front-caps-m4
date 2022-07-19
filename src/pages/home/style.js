@@ -107,7 +107,6 @@ export const ListItem = styled.li`
 
   p {
     font-size: 1.5rem;
-    font-family: var(--title-2);
     margin-top: 20px;
     margin-bottom: 20px;
     margin-left: 20px;
@@ -130,5 +129,14 @@ export const ListItem = styled.li`
   }
 
   @media (min-width: 1024px) {
+    p, h2 {
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 1rem;
+    margin-bottom: 18px;
+  }
+
   }
 `;

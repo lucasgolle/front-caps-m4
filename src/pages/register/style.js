@@ -62,6 +62,11 @@ export const Form = styled.form`
       }
     }
   }
+
+  label {
+    font-family: var(--paragraph);
+    font-weight: 400;
+  }
 `;
 
 export const BackgroundDesktop = styled.div`

@@ -21,7 +21,7 @@ export const Form = styled.form`
   width: 320px;
 
   h1 {
-    width: 100%;
+    width: 320px;
     text-align: center;
     margin-bottom: 60px;
     margin-top: 46px;
