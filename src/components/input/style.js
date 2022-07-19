@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.section `
+export const Container = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -11,7 +11,7 @@ export const Container = styled.section `
       width: 8rem;
     }
   }
-`
+`;
 
 export const InputStyled = styled.div`
   display: flex;
@@ -26,7 +26,6 @@ export const InputStyled = styled.div`
   margin-bottom: 2rem;
   padding-left: 0.6rem;
 
-
   input {
     background: transparent;
     position: absolute;
@@ -36,12 +35,19 @@ export const InputStyled = styled.div`
     font-size: 1rem;
     color: var(--title);
     max-width: max-content;
+    -webkit-appearance: none;
     height: 3.5rem;
 
     &::placeholder {
       color: #8d99ae;
       font-size: 0.8rem;
     }
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
   }
 `;
 
