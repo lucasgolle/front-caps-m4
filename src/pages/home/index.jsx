@@ -70,14 +70,6 @@ const HomePage = () => {
               <span>R$ 40,00</span>
               <Button>Comprar</Button>
             </ListItem>
-            <ListItem>
-              <img src={coquinha} alt="imagem produto" />
-              <h2>Coca colinha</h2>
-              <p>Sempre gelada para acompanhar sua comida.</p>
-              <span>R$ 40,00</span>
-              <Button>Comprar</Button>
-            </ListItem>
-            <ListItem />
           </ListShowcase>
         </DivShowcase>
         {/* {showModal && <Cart />} */}

@@ -54,7 +54,7 @@ export const DivShowcase = styled.div`
   width: 100vw;
   background-color: #fff5f5;
   border: 1px solid #2b2d42;
-  padding-top: 150px;
+  padding-top: 50px;
   border-radius: 10px;
   border-bottom: none;
   overflow-y: hidden;
@@ -63,7 +63,9 @@ export const DivShowcase = styled.div`
     width: 80%;
     margin-top: 18rem;
     overflow-x: hidden;
-    min-height: 100vh;
+    padding: 2rem;
+    padding-top: 4rem;
+    min-height: 70%;
   }
 `;
 
@@ -71,7 +73,6 @@ export const ListShowcase = styled.ul`
   list-style: none;
   display: flex;
   justify-content: center;
-  height: 392px;
   @media (min-width: 1024px) {
     flex-wrap: wrap;
     padding-bottom: 100px;
