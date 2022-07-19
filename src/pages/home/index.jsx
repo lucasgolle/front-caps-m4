@@ -40,7 +40,7 @@ const HomePage = () => {
 
   const devs = [
     { name: 'Iasmim Dantas', github: '/', linkedin: '/' },
-    { name: 'Tarcila Santos Garcia', github: '/', linkedin: '/' },
+    { name: 'Tarcila Santos Garcia', github: '/', linkedin: 'https:/www.linkedin.com/in/tarcila-garcia' },
     { name: 'Raphael Mallorga', github: '/', linkedin: '/' },
     { name: 'Gabriel Schneider', github: '/', linkedin: '/' },
     { name: 'Richard Cândido', github: '/', linkedin: '/' },
@@ -84,18 +84,60 @@ const HomePage = () => {
           Control com Agência Online S.A.
         </p>
         <Devs>
-            {/* <h4>Created by:</h4> */}
-            {devs.map(dev => (
-              <div key={dev.name}>
-                <h2>{dev.name}</h2>
-                <Link target="_blank" to={dev.github}>
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
-                </Link>
-                <Link target="_blank" to={dev.linkedin}>
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
-                </Link>
+                </a>
               </div>
-            ))}
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <GitHub />
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <Linkedin />
+                </a>
+              </div>
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <GitHub />
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <Linkedin />
+                </a>
+              </div>
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <GitHub />
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <Linkedin />
+                </a>
+              </div>
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <GitHub />
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <Linkedin />
+                </a>
+              </div>
+              <div>
+                <h2>Iasmim Dantas</h2>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <GitHub />
+                </a>
+                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                  <Linkedin />
+                </a>
+              </div>
           </Devs>
       </FooterHome>
     </>

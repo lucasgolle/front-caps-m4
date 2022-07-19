@@ -12,12 +12,12 @@ import coquinha from "../../assets/cocacola.png";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
-import { decodeToken } from "react-jwt";
+// import { decodeToken } from "react-jwt";
 import api from "../../services/api";
 
 const Cart = ({ closeCart }) => {
   const tokenUser = JSON.parse(localStorage.getItem("@Solid:token")) || "";
-  const decodedToken = decodeToken(tokenUser);
+  // const decodedToken = decodeToken(tokenUser);
   const navigate = useNavigate();
   const { cart, deleteCart, setCart } = useContext(CartContext);
   const [userData, setUserData] = useState({});
@@ -34,7 +34,7 @@ const Cart = ({ closeCart }) => {
           <h2>Carrinho</h2>
           <XCircle onClick={closeCart} />
         </div>
-        <DivShowcase>
+        {/* <DivShowcase>
           <ListShowcase>
             {cart.map((product, index) => {
               const sumProduct = product.price * product.quantity;
@@ -57,7 +57,7 @@ const Cart = ({ closeCart }) => {
               );
             })}
           </ListShowcase>
-        </DivShowcase>
+        </DivShowcase> */}
         <div>
           <Button>Finalizar compra</Button>
           <Button onClick={closeCart}>Continuar comprando</Button>

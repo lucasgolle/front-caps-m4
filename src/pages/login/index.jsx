@@ -21,6 +21,7 @@ const LoginPage = () => {
       .post("/users/login", data)
       .then((res) => {
         localStorage.setItem("@Solid:token", JSON.stringify(res.data.token));
+        console.log(res.data)
 
         return navigate("/");
       })
