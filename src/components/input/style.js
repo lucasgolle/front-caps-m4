@@ -36,7 +36,21 @@ export const InputStyled = styled.div`
     color: var(--title);
     max-width: max-content;
     -webkit-appearance: none;
+    padding-right: 1rem;
     height: 3.5rem;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    height: 18px;
+    width: 140px;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    font-family: "Roboto";
+    font-size: 0.9rem;
+    color: black;
+    white-space: nowrap;
 
     &::placeholder {
       color: #8d99ae;

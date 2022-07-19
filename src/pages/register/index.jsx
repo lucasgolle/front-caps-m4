@@ -4,11 +4,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
-import { BackgroundDesktop, Container, Form } from "./style";
+import { BackgroundDesktop, Container, Form, InputCEP, SpanCEP } from "./style";
 import Input from "../../components/input";
 import Button from "../../components/button";
 import Banner from "../../assets/bannerSolid2.png";
 import api from "../../services/api";
+import { useEffect, useState } from "react";
 
 const Register = () => {
   const history = useNavigate();
@@ -18,7 +19,10 @@ const Register = () => {
     email: yup.string().required("Campo obrigatório").email("E-mail inválido"),
     zip_code: yup.string().required("Obrigatório"),
     street: yup.string().required(""),
-    number: yup.string().required("Obrigatório").max(8, "Máximo de 8 caracteres"),
+    number: yup
+      .string()
+      .required("Obrigatório")
+      .max(8, "Máximo de 8 caracteres"),
     state: yup.string().required(""),
     city: yup.string().required(""),
     password: yup
@@ -71,20 +75,32 @@ const Register = () => {
       });
   };
 
+  
   const zipCodeSearch = (event) => {
     const zipCode = event.target.value.replace(/\D/g, "");
     axios
-      .get(`https://viacep.com.br/ws/${zipCode}/json/`)
-      .then((response) => {
-        const address = response.data;
-        setValue("street", address.logradouro);
-        setValue("city", address.localidade);
-        setValue("state", address.uf);
-      })
-      .catch((error) => {
-        console.log(error, "CEP inválido");
-      });
+    .get(`https://viacep.com.br/ws/${zipCode}/json/`)
+    .then((response) => {
+      const address = response.data;
+      setValue("street", address.logradouro);
+      setValue("city", address.localidade);
+      setValue("state", address.uf);
+      console.log(response.data)
+    })
+    .catch((error) => {
+      console.log(error, "CEP inválido");
+    });
   };
+
+  const [cep, setCEP] = useState("")
+
+  useEffect(() => {
+
+    if (cep.length === 7) {
+       zipCodeSearch();
+    }
+   
+   }, [cep])
 
   return (
     <Container animate={defaultAnimation} transition={defaultTransition}>
@@ -109,16 +125,18 @@ const Register = () => {
         ></Input>
 
         <section>
-          <section>
-            <Input
+
+          <SpanCEP>
+            <span>CEP</span>
+            <InputCEP
               type="number"
-              label="CEP"
               placeholder="Digite seu CEP"
               name="zip_code"
-              register={register}
+              {...register("zip_code")}
+              onBlur={zipCodeSearch}
               error={errors.zip_code?.message}
-            ></Input>
-          </section>
+            ></InputCEP>
+          </SpanCEP>
           <section>
             <Input
               type="text"

@@ -1,6 +1,6 @@
 import { Container, InputStyled, Label } from "./style";
 
-const Input = ({ label, name, register, error = "", ...rest }) => {
+const Input = ({ label, name, register, error = "",  ...rest }) => {
   return (
     <>
       <Container>
