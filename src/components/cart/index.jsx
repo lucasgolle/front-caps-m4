@@ -45,7 +45,9 @@ const Cart = ({ closeCart }) => {
         .then((resp) => {
           if (tokenUser) {
             localStorage.removeItem("@Solid:cart");
+            toast.success("Pedido enviado");
             setCart([]);
+            closeCart();
           }
         })
         .catch((err) => {
