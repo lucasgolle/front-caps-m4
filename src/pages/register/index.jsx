@@ -9,7 +9,8 @@ import Input from "../../components/input";
 import Button from "../../components/button";
 import Banner from "../../assets/bannerSolid2.png";
 import api from "../../services/api";
-import { useEffect, useState } from "react";
+import { toast } from "react-toastify";
+
 
 const Register = () => {
   const history = useNavigate();
@@ -67,11 +68,13 @@ const Register = () => {
 
     api
       .post("/users/register", user)
-      .then((_) => {
-        history("/login");
+      .then((response) => {
+        history("/login")
+        toast.success("Resgistro feito com sucesso");
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Confira todos os campos");
       });
   };
 
@@ -91,16 +94,6 @@ const Register = () => {
       console.log(error, "CEP inválido");
     });
   };
-
-  const [cep, setCEP] = useState("")
-
-  useEffect(() => {
-
-    if (cep.length === 7) {
-       zipCodeSearch();
-    }
-   
-   }, [cep])
 
   return (
     <Container animate={defaultAnimation} transition={defaultTransition}>

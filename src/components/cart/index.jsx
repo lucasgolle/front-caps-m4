@@ -9,10 +9,11 @@ import { XCircle } from "react-feather";
 import Button from "../button";
 import coquinha from "../../assets/cocacola.png";
 
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext } from "react";
 import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { toast } from "react-toastify";
 
 const Cart = ({ closeCart }) => {
   const tokenUser = JSON.parse(localStorage.getItem("@Solid:token")) || "";
@@ -48,8 +49,7 @@ const Cart = ({ closeCart }) => {
     }
   };
 
-  console.log(cart)
-
+  console.log(cart);
 
   const sum = cart.reduce((previous, current) => {
     return previous + current.price * current.quantity;
@@ -72,19 +72,24 @@ const Cart = ({ closeCart }) => {
                   <img src={coquinha} alt={product.name} />
                   <h2>{product.name}</h2>
                   <section>
-                  <div>
-                  <p>Qtd: {product.quantity}</p>
-                  <span>
-                    {sumProduct.toLocaleString("pt-BR", {
-                      style: "currency",
-                      currency: "BRL",
-                      minimumFractionDigits: 2,
-                    })}
-                  </span>
-                  </div>
-                  <Button onClick={() => deleteCart(product.uniqueId)}>
-                    Excluir
-                  </Button>
+                    <div>
+                      <p>Qtd: {product.quantity}</p>
+                      <span>
+                        {sumProduct.toLocaleString("pt-BR", {
+                          style: "currency",
+                          currency: "BRL",
+                          minimumFractionDigits: 2,
+                        })}
+                      </span>
+                    </div>
+                    <Button
+                      onClick={() => {
+                        deleteCart(product.uniqueId);
+                        toast.success("Produto excluído");
+                      }}
+                    >
+                      Excluir
+                    </Button>
                   </section>
                 </ListItem>
               );

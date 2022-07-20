@@ -3,7 +3,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import api from "../../services/api";
-
 import { BackgroundDesktop, Container, Form } from "./style";
 import Input from "../../components/input";
 import Logo from "../../components/logo";
@@ -13,6 +12,7 @@ import { defaultAnimation, defaultTransition } from "../../utils/defaultMotion";
 import { motion, useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { toast } from "react-toastify";
 
 const LoginPage = () => {
   const navigate = useNavigate();
@@ -22,11 +22,13 @@ const LoginPage = () => {
       .then((res) => {
         localStorage.setItem("@Solid:token", JSON.stringify(res.data.token));
         console.log(res.data)
+        toast.success("Olá, bom ter você aqui");
 
         return navigate("/");
       })
       .catch((err) => {
         console.log(err);
+        toast.error("Confira todos os campos");
       });
   };
 

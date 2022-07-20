@@ -93,11 +93,6 @@ export const ListItem = styled.li`
   border-radius: 10px;
   transition: 0.6s;
 
-  img {
-    width: 100%;
-    height: 150px;
-  }
-
   h2 {
     font-size: 1.5rem;
     font-family: var(--title-2);
@@ -106,17 +101,19 @@ export const ListItem = styled.li`
   }
 
   p {
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin-top: 20px;
+    font-family: "Roboto";
     margin-bottom: 20px;
-    margin-left: 20px;
+    text-align: center;
+    max-width: 95%;
   }
 
   span {
     font-size: 1.2rem;
     margin-bottom: 10px;
     color: #8d99ae;
-    margin-right: 145px;
+    margin-left: 20px;
   }
 
   &:hover {
@@ -128,6 +125,14 @@ export const ListItem = styled.li`
     margin-top: 0px;
   }
 
+  div {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+
+  }
+
   @media (min-width: 1024px) {
     p, h2 {
     font-size: 1.2rem;
@@ -135,8 +140,8 @@ export const ListItem = styled.li`
 
   span {
     font-size: 1rem;
-    margin-bottom: 18px;
   }
+
 
   }
 `;
@@ -208,3 +213,13 @@ export const Devs = styled.section`
     }
   }
 `;
+
+export const Stars = styled.img`
+      margin-right: 20px;
+      margin-bottom: 10px;
+`
+
+export const IMGProduct = styled.img`
+    width: 100%;
+    height: 150px;
+`
