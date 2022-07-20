@@ -125,7 +125,7 @@ export const ListItem = styled.li`
     box-shadow: 14px 14px 20px #111111;
     margin-left: 15px;
     margin-right: 17px;
-    margin-top: -10px;
+    margin-top: 0px;
   }
 
   @media (min-width: 1024px) {
@@ -149,7 +149,7 @@ export const FooterHome = styled.footer`
   position: fixed;
   justify-content: space-between;
   align-items: center;
-  z-index: 20;
+  z-index: 14;
   position: absolute;
   background-color: var(--primary-color);
 

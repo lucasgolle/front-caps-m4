@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-import { v4 as uuidv4 } from "uuid";
 
 export const CartContext = createContext([]);
 
@@ -9,7 +8,6 @@ export const CartProvider = ({ children }) => {
   );
 
   const addCart = (product) => {
-    product.uniqueId = uuidv4();
     product.quantity = 1;
 
     const list = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
@@ -28,7 +26,7 @@ export const CartProvider = ({ children }) => {
       });
       setCart(mapList);
       localStorage.setItem("@Solid:cart", JSON.stringify(mapList));
-      console.log(mapList);
+      console.log(cart)
     }
   };
 

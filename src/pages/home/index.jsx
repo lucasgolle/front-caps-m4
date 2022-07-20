@@ -38,15 +38,6 @@ const HomePage = () => {
       product.category.toLowerCase().includes(inputSearch.toLowerCase())
   );
 
-  const devs = [
-    { name: 'Iasmim Dantas', github: '/', linkedin: '/' },
-    { name: 'Tarcila Santos Garcia', github: '/', linkedin: 'https:/www.linkedin.com/in/tarcila-garcia' },
-    { name: 'Raphael Mallorga', github: '/', linkedin: '/' },
-    { name: 'Gabriel Schneider', github: '/', linkedin: '/' },
-    { name: 'Richard Cândido', github: '/', linkedin: '/' },
-    { name: 'Lucas Golle', github: '/', linkedin: '/' },
-  ];
-
   const goLogin = () => {
     return navigate("/login", { replace: true });
   };
@@ -89,52 +80,52 @@ const HomePage = () => {
                 <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/iasmimdantas" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>
               <div>
-                <h2>Iasmim Dantas</h2>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <h2>Raphael Mallorga</h2>
+                <a href="https://github.com/rafhaelmallorga" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/rafhael-mallorga-44632494" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>
               <div>
-                <h2>Iasmim Dantas</h2>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <h2>Tarcila Santos Garcia</h2>
+                <a href="https://github.com/tarcilasg" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/tarcila-garcia/" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>
               <div>
-                <h2>Iasmim Dantas</h2>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <h2>Richard Cândido</h2>
+                <a href="https://github.com/rich-dacan" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/richard-andrade-candido" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>
               <div>
-                <h2>Iasmim Dantas</h2>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <h2>Lucas Golle</h2>
+                <a href="https://github.com/lucasgolle" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/lucasgolle/" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>
               <div>
-                <h2>Iasmim Dantas</h2>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <h2>Gabriel Schneider</h2>
+                <a href="https://github.com/dejazz" target="_blank" rel="noopener noreferrer" >
                   <GitHub />
                 </a>
-                <a href="https://github.com/iasmimd" target="_blank" rel="noopener noreferrer" >
+                <a href="https://www.linkedin.com/in/gabriel-muniz-schneider" target="_blank" rel="noopener noreferrer" >
                   <Linkedin />
                 </a>
               </div>

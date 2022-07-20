@@ -12,26 +12,12 @@ import coquinha from "../../assets/cocacola.png";
 import React, { useContext, useEffect, useState } from "react";
 import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
-// import { decodeToken } from "react-jwt";
 import api from "../../services/api";
 
 const Cart = ({ closeCart }) => {
   const tokenUser = JSON.parse(localStorage.getItem("@Solid:token")) || "";
-  // const decodedToken = decodeToken(tokenUser);
   const navigate = useNavigate();
   const { cart, deleteCart, setCart } = useContext(CartContext);
-
-  // useEffect(() => {
-  //   getUser();
-  // });
-  // const getUser = () => {
-  //   if (decodedToken) {
-  //     api.get(`/users/${decodedToken.id}`).then((resp) => {
-  //       setUserData(resp.data);
-  //     });
-  //   }
-  // };
-  // console.log("userData", userData);
 
   const getOrder = () => {
     const cartItems = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
@@ -62,6 +48,9 @@ const Cart = ({ closeCart }) => {
     }
   };
 
+  console.log(cart)
+
+
   const sum = cart.reduce((previous, current) => {
     return previous + current.price * current.quantity;
   }, 0);
@@ -74,7 +63,7 @@ const Cart = ({ closeCart }) => {
           <h2>Carrinho</h2>
           <XCircle onClick={closeCart} />
         </div>
-        {/* <DivShowcase>
+        <DivShowcase>
           <ListShowcase>
             {cart.map((product, index) => {
               const sumProduct = product.price * product.quantity;
@@ -82,22 +71,26 @@ const Cart = ({ closeCart }) => {
                 <ListItem key={index}>
                   <img src={coquinha} alt={product.name} />
                   <h2>{product.name}</h2>
+                  <section>
+                  <div>
                   <p>Qtd: {product.quantity}</p>
                   <span>
-                    {sumProduct.price.toLocaleString("pt-BR", {
+                    {sumProduct.toLocaleString("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                       minimumFractionDigits: 2,
                     })}
                   </span>
-                  <Button onClick={() => deleteCart(product.id)}>
+                  </div>
+                  <Button onClick={() => deleteCart(product.uniqueId)}>
                     Excluir
                   </Button>
+                  </section>
                 </ListItem>
               );
             })}
           </ListShowcase>
-        </DivShowcase> */}
+        </DivShowcase>
         <div>
           <Button onClick={getOrder}>Finalizar compra</Button>
           <Button onClick={closeCart}>Continuar comprando</Button>
