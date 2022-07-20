@@ -21,18 +21,6 @@ const Cart = ({ closeCart }) => {
   const navigate = useNavigate();
   const { cart, deleteCart, setCart } = useContext(CartContext);
 
-  // useEffect(() => {
-  //   getUser();
-  // });
-  // const getUser = () => {
-  //   if (decodedToken) {
-  //     api.get(`/users/${decodedToken.id}`).then((resp) => {
-  //       setUserData(resp.data);
-  //     });
-  //   }
-  // };
-  // console.log("userData", userData);
-
   const getOrder = () => {
     const cartItems = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
     const ticketData = {
@@ -74,7 +62,7 @@ const Cart = ({ closeCart }) => {
           <h2>Carrinho</h2>
           <XCircle onClick={closeCart} />
         </div>
-        {/* <DivShowcase>
+        <DivShowcase>
           <ListShowcase>
             {cart.map((product, index) => {
               const sumProduct = product.price * product.quantity;
@@ -84,7 +72,8 @@ const Cart = ({ closeCart }) => {
                   <h2>{product.name}</h2>
                   <p>Qtd: {product.quantity}</p>
                   <span>
-                    {sumProduct.price.toLocaleString("pt-BR", {
+                    Preço:
+                    {sumProduct.toLocaleString("pt-BR", {
                       style: "currency",
                       currency: "BRL",
                       minimumFractionDigits: 2,
@@ -97,7 +86,7 @@ const Cart = ({ closeCart }) => {
               );
             })}
           </ListShowcase>
-        </DivShowcase> */}
+        </DivShowcase>
         <div>
           <Button onClick={getOrder}>Finalizar compra</Button>
           <Button onClick={closeCart}>Continuar comprando</Button>
