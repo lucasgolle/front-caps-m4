@@ -27,7 +27,13 @@ const Cart = ({ closeCart }) => {
       status: "Realizado",
     };
 
+    if (!tokenUser) {
+      navigate("/login");
+      toast.error("Por favor, faça seu login");
+    }
+
     if (tokenUser && cartItems?.length === 0) {
+      toast.error("Carrinho vazio!");
       console.log("carrinho vazio!");
     }
 
@@ -39,8 +45,9 @@ const Cart = ({ closeCart }) => {
         .then((resp) => {
           if (tokenUser) {
             localStorage.removeItem("@Solid:cart");
+            toast.success("Pedido enviado");
             setCart([]);
-            navigate("/login");
+            closeCart();
           }
         })
         .catch((err) => {

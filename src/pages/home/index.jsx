@@ -107,7 +107,7 @@ const HomePage = () => {
             </a>
           </div>
           <div>
-            <h2>Raphael Mallorga</h2>
+            <h2>Rafhael Mallorga</h2>
             <a
               href="https://github.com/rafhaelmallorga"
               target="_blank"
@@ -124,7 +124,7 @@ const HomePage = () => {
             </a>
           </div>
           <div>
-            <h2>Tarcila Santos Garcia</h2>
+            <h2>Tarcila Garcia</h2>
             <a
               href="https://github.com/tarcilasg"
               target="_blank"
