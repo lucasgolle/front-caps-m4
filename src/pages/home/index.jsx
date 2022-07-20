@@ -56,7 +56,7 @@ const HomePage = () => {
           <ListShowcase>
             {searchFilter.map((product, index) => (
               <ListItem key={index}>
-                <IMGProduct src={coquinha} alt={product.name} />
+                <IMGProduct src={product.img} alt={product.name} />
                 <h2>{product.name}</h2>
                 <p>Mande este produto incrível direto para o carrinho</p>
                 <div>
