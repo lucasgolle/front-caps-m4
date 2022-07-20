@@ -222,4 +222,5 @@ export const Stars = styled.img`
 export const IMGProduct = styled.img`
     width: 100%;
     height: 150px;
+    border-radius: 10px 10px 0px 0px;
 `
