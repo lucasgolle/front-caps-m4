@@ -13,50 +13,56 @@ const appearFromLeft = keyframes`
 
 export const Container = styled.div`
   width: 100vw;
-  height: 100vh;
   padding: 5rem 1.143rem 0;
   position: absolute;
   z-index: 15;
   color: black;
+  min-height: 100vh;
   display: flex;
+  height: 100vh;
+  overflow-y: hidden;
+  position: fixed;
   max-width: 700px;
   background-color: var(--background);
   flex-direction: column;
   justify-content: space-between;
+
+  div>button {
+    margin: 5px;
+  }
 
   div {
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin-bottom: 120px;
-    margin-top: 50px;
+    margin-top: 0px;
   }
 
   span {
     width: 100px;
-    height: 200px;
-    margin: 0 auto;
     z-index: 20;
-    position: absolute;
     color: black;
   }
   svg {
     cursor: pointer;
     position: relative;
     margin-right: 15px;
-    margin-bottom: 18px;
+    margin-top: 28px;
   }
   h2 {
     color: black;
     font-size: 1.7rem;
     margin-left: 15px;
+    margin-top: 50px;
     font-family: "Roboto";
   }
   button {
-    margin: 5px;
+    margin-bottom: 10px;
+    position: relative;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1581px) {
     right: 0;
     top: 0;
     width: 25%;
@@ -89,7 +95,7 @@ export const Container = styled.div`
 export const ContainerPai = styled.div`
   display: none;
 
-  @media (min-width: 1024px) {
+  @media (min-width: 1581px) {
     position: fixed;
     left: 0px;
     top: 0px;
@@ -113,32 +119,21 @@ export const DivShowcase = styled.div`
   overflow-x: scroll;
   padding-left: 1rem;
   padding-right: 1rem;
-  width: 100vw;
+  min-height: 450px;
+  width: 100%;
   background-color: #fff5f5;
   border: 1px solid #2b2d42;
   padding-top: 50px;
   border-radius: 10px;
   border-bottom: none;
   overflow-y: hidden;
-  @media (min-width: 1024px) {
-    display: block;
-    width: 80%;
-    margin-top: 18rem;
-    overflow-x: hidden;
-    padding: 2rem;
-    padding-top: 4rem;
-    min-height: 70%;
-  }
+
 `;
 
 export const ListShowcase = styled.ul`
   list-style: none;
   display: flex;
   justify-content: center;
-  @media (min-width: 1024px) {
-    flex-wrap: wrap;
-    padding-bottom: 100px;
-  }
 `;
 
 export const ListItem = styled.li`
@@ -159,7 +154,6 @@ export const ListItem = styled.li`
     width: 100%;
     height: 150px;
   }
-
   h2 {
     font-size: 1.5rem;
     font-family: var(--title-2);
@@ -167,20 +161,33 @@ export const ListItem = styled.li`
     margin-bottom: 20px;
   }
 
+  div {
+    display: flex;
+  }
+
+  section {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 100%;
+  }
+
   p {
-    font-size: 1.5rem;
-    font-family: var(--title-2);
-    margin-top: 20px;
-    margin-bottom: 20px;
-    margin-left: 20px;
+    font-size: 1.3rem;
+    margin-left: 10px;
+    font-family: "Roboto";
+    margin-bottom: -185px;
   }
 
   span {
     font-size: 1.2rem;
-    margin-bottom: 10px;
     color: #8d99ae;
-    margin-right: 145px;
+    margin-bottom: -180px;
+    margin-right: 5px;
+
   }
+
 
   &:hover {
     width: 278px;
@@ -194,3 +201,4 @@ export const ListItem = styled.li`
   @media (min-width: 1024px) {
   }
 `;
+

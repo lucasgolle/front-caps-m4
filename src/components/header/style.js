@@ -17,6 +17,20 @@ export const Container = styled.header`
     margin-left: 20px;
   }
 
+  span {
+    width: 20px;
+    height: 20px;
+    margin-right: -55px;
+    border: solid 2px #000000;
+    background-color: white;
+    display: flex;
+    margin-top: -8px;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+  }
+
   div {
     display: flex;
   }
@@ -24,6 +38,18 @@ export const Container = styled.header`
   @media (min-width: 1024px) {
     padding-left: 6rem;
     padding-right: 6rem;
+
+    span {
+      width: 25px;
+      height: 25px;
+      margin-right: -110px;
+      margin-top: -5px;
+      background-color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100%;
+    }
 
     svg {
       display: block;

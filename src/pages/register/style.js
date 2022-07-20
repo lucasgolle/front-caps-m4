@@ -67,6 +67,12 @@ export const Form = styled.form`
     font-family: var(--paragraph);
     font-weight: 400;
   }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
 `;
 
 export const BackgroundDesktop = styled.div`
