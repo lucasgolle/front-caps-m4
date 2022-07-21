@@ -1,9 +1,14 @@
 import {
-  Container,
   ContainerPai,
-  DivShowcase,
-  ListShowcase,
-  ListItem,
+  DivGlobal,
+  ContainerCarrinho,
+  HeaderCart,
+  DivCartEmpty,
+  ContainerULCart,
+  UlCarrinho,
+  LiCarrinho,
+  DivLiInfo,
+  DivBotCart,
 } from "./style";
 import { XCircle } from "react-feather";
 import Button from "../button";
@@ -13,6 +18,7 @@ import React, { useContext } from "react";
 import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
+import { BsFillCartXFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -39,15 +45,16 @@ const Cart = ({ closeCart }) => {
     }
 
     if (tokenUser && cartItems.length !== 0) {
-   
       axios
-        .get(`https://api-gamer-shop.herokuapp.com/payment/checkout/12354781/teste@yesye.com/${cartItems[0].name}/${sum}`, ticketData, {
-          headers: { Authorization: `Bearer ${tokenUser}` },
-        })
+        .get(
+          `https://api-gamer-shop.herokuapp.com/payment/checkout/12354781/teste@yesye.com/${cartItems[0].name}/${sum}`,
+          ticketData,
+          {
+            headers: { Authorization: `Bearer ${tokenUser}` },
+          }
+        )
         .then((resp) => {
-          window.location.replace(
-            resp.data
-          );
+          window.location.replace(resp.data);
           // if (tokenUser) {
           //   localStorage.removeItem("@Solid:cart");
           //   toast.success("Pedido enviado");
@@ -69,57 +76,69 @@ const Cart = ({ closeCart }) => {
 
   return (
     <>
-      <ContainerPai onClick={closeCart} />
-      <Container>
-        <div>
-          <h2>Carrinho</h2>
-          <XCircle onClick={closeCart} />
-        </div>
-        <DivShowcase>
-          <ListShowcase>
-            {cart.map((product, index) => {
-              const sumProduct = product.price * product.quantity;
-              return (
-                <ListItem key={index}>
-                  <img src={product.img} alt={product.name} />
-                  <h2>{product.name}</h2>
-                  <section>
-                    <div>
-                      <p>Qtd: {product.quantity}</p>
-                      <span>
-                        {sumProduct.toLocaleString("pt-BR", {
-                          style: "currency",
-                          currency: "BRL",
-                          minimumFractionDigits: 2,
-                        })}
-                      </span>
-                    </div>
-                    <Button
-                      onClick={() => {
-                        deleteCart(product.uniqueId);
-                        toast.success("Produto excluído");
-                      }}
-                    >
-                      Excluir
-                    </Button>
-                  </section>
-                </ListItem>
-              );
-            })}
-          </ListShowcase>
-        </DivShowcase>
-        <div>
-          <Button onClick={getOrder}>Finalizar compra</Button>
-          <Button onClick={closeCart}>Continuar comprando</Button>
-        </div>
-      </Container>
-      <span>
-        Total:
-        {sum.toLocaleString("pt-BR", {
-          style: "currency",
-          currency: "BRL",
-        })}
-      </span>
+      <DivGlobal>
+        <ContainerPai onClick={closeCart} />
+        <ContainerCarrinho>
+          <HeaderCart>
+            <h2>Carrinho</h2>
+            <XCircle onClick={closeCart} />
+          </HeaderCart>
+          {cart.length < 1 && (
+            <DivCartEmpty>
+              <h2>Seu carrinho está vazio</h2>
+              <BsFillCartXFill />
+            </DivCartEmpty>
+          )}
+          <ContainerULCart>
+            <UlCarrinho>
+              {cart.map((product, index) => {
+                const sumProduct = product.price * product.quantity;
+                return (
+                  <LiCarrinho key={index}>
+                    <img src={product.img} alt={product.name} />
+                    <h2>{product.name}</h2>
+                    <DivLiInfo>
+                      <div>
+                        <p>{product.quantity}x</p>
+                        <span>
+                          {sumProduct.toLocaleString("pt-BR", {
+                            style: "currency",
+                            currency: "BRL",
+                            minimumFractionDigits: 2,
+                          })}
+                        </span>
+                      </div>
+                      <Button
+                        onClick={() => {
+                          deleteCart(product.uniqueId);
+                          toast.success("Produto excluído");
+                        }}
+                      >
+                        Excluir
+                      </Button>
+                    </DivLiInfo>
+                  </LiCarrinho>
+                );
+              })}
+            </UlCarrinho>
+          </ContainerULCart>
+          <DivBotCart>
+            <div>
+              <p>Total</p>
+              <span>
+                {sum.toLocaleString("pt-BR", {
+                  style: "currency",
+                  currency: "BRL",
+                })}
+              </span>
+            </div>
+            <div>
+              <Button onClick={getOrder}>Finalizar compra</Button>
+              <Button onClick={closeCart}>Continuar comprando</Button>
+            </div>
+          </DivBotCart>
+        </ContainerCarrinho>
+      </DivGlobal>
     </>
   );
 };

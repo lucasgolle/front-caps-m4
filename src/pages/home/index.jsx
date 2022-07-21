@@ -81,8 +81,8 @@ const HomePage = () => {
             ))}
           </ListShowcase>
         </DivShowcase>
-        {showModal && <Cart closeCart={changeModalCart} />}
       </Container>
+        {showModal && <Cart closeCart={changeModalCart} />}
       <FooterHome>
         <p>
           © Copyright 2022 - Solid Control - Todos os direitos reservados Solid

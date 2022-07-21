@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 
-const appearFromLeft = keyframes`
+const appearFromRight = keyframes`
     from{
         opacity: 0;
         transform: translateX(500px)
@@ -11,194 +11,181 @@ const appearFromLeft = keyframes`
     }
 `;
 
-export const Container = styled.div`
+export const DivGlobal = styled.div`
   width: 100vw;
-  padding: 5rem 1.143rem 0;
-  position: absolute;
-  z-index: 15;
-  color: black;
-  min-height: 100vh;
-  display: flex;
   height: 100vh;
   overflow-y: hidden;
+  overflow-x: hidden;
   position: fixed;
-  max-width: 700px;
-  background-color: var(--background);
-  flex-direction: column;
-  justify-content: space-between;
-
-  div>button {
-    margin: 5px;
-  }
-
-  div {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 120px;
-    margin-top: 0px;
-  }
-
-  span {
-    width: 100px;
-    z-index: 20;
-    color: black;
-  }
-  svg {
-    cursor: pointer;
-    position: relative;
-    margin-right: 15px;
-    margin-top: 28px;
-  }
-  h2 {
-    color: black;
-    font-size: 1.7rem;
-    margin-left: 15px;
-    margin-top: 50px;
-    font-family: "Roboto";
-  }
-  button {
-    margin-bottom: 10px;
-    position: relative;
-  }
-
-  @media (min-width: 1581px) {
-    right: 0;
-    top: 0;
-    width: 25%;
-    min-height: 100vh;
-    padding-top: 0;
-    padding-left: 4rem;
-    z-index: 35;
-    position: fixed;
-    animation: ${appearFromLeft} 1s;
-
-    div {
-      justify-content: space-between;
-    }
-    svg {
-      margin-right: 30px;
-    }
-  }
-  @keyframes animationCard {
-    0% {
-      height: 0%;
-      opacity: 0.4;
-    }
-    100% {
-      height: 100%;
-      opacity: 1;
-    }
-  }
+  z-index: 45;
 `;
 
 export const ContainerPai = styled.div`
-  display: none;
-
-  @media (min-width: 1581px) {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    align-items: center;
-    background-color: rgba(238, 245, 255, 0.125);
-    backdrop-filter: blur(5px);
-    z-index: 35;
-  }
-`;
-
-export const DivShowcase = styled.div`
-  z-index: 2;
-  display: flex;
-  overflow-x: scroll;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  min-height: 450px;
+  position: fixed;
+  left: 0px;
+  top: 0px;
   width: 100%;
-  background-color: #fff5f5;
-  border: 1px solid #2b2d42;
-  padding-top: 50px;
-  border-radius: 10px;
-  border-bottom: none;
+  height: 100%;
+  flex-direction: column;
   overflow-y: hidden;
-
-`;
-
-export const ListShowcase = styled.ul`
-  list-style: none;
-  display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
+  align-items: center;
+  background-color: rgba(238, 245, 255, 0.125);
+  backdrop-filter: blur(5px);
+  z-index: 25;
 `;
 
-export const ListItem = styled.li`
+export const ContainerCarrinho = styled.div`
+  background: #fff5f5;
+  width: 100vw;
+  max-width: 450px;
+  overflow-y: hidden;
+  right: 0;
+  z-index: 35;
+  position: fixed;
+  overflow-x: hidden;
+  top: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  animation: ${appearFromRight} 1s;
+  padding: 2rem;
   align-items: center;
-  margin-left: 25px;
-  margin-right: 25px;
-  margin-bottom: 55px;
-  width: 260px;
-  height: 392px;
-  background-color: #fff;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+`;
+
+export const HeaderCart = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+
+  svg {
+    cursor: pointer;
+    width: 35px;
+    height: 50px;
+  }
+
+  h2 {
+    font-family: "Roboto";
+    font-size: 1.4rem;
+  }
+`;
+
+export const ContainerULCart = styled.div`
+  display: flex;
+`;
+
+export const UlCarrinho = styled.ul`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+export const LiCarrinho = styled.li`
+  display: flex;
+  justify-content: space-around;
+  width: 95vw;
+  max-width: 400px;
+  align-items: center;
+  background: #ffffff;
+  border: 3px solid #2b2d42;
+  padding: 1rem 1rem 1rem 1rem;
   border-radius: 10px;
-  transition: 0.6s;
 
   img {
-    width: 100%;
-    height: 150px;
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
   }
+
   h2 {
-    font-size: 1.5rem;
-    font-family: var(--title-2);
-    margin-top: 20px;
-    margin-bottom: 20px;
+    font-family: "Roboto";
+    font-size: 1rem;
+    width: 250px;
+    text-align: center;
   }
+`;
+
+export const DivLiInfo = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
 
   div {
     display: flex;
-  }
-
-  section {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    margin-left: 30px;
-    width: 100%;
-  }
-
-  p {
-    font-size: 1.3rem;
-    margin-left: 10px;
-    font-family: "Roboto";
-    margin-bottom: -185px;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    margin-bottom: 10px;
   }
 
   span {
-    font-size: 1.2rem;
     color: #8d99ae;
-    margin-bottom: -180px;
+    font-weight: bold;
     margin-right: 5px;
-
   }
 
-
-  &:hover {
-    width: 278px;
-    transition: 0.6s;
-    box-shadow: 14px 14px 20px #111111;
-    margin-left: 15px;
-    margin-right: 17px;
-    margin-top: -10px;
-  }
-
-  @media (min-width: 1024px) {
+  p {
+    background-color: gray;
+    font-weight: bold;
+    padding: 5px;
+    border-radius: 5px;
+    color: #2b2d42;
   }
 `;
 
+export const DivBotCart = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+
+    p,
+    span {
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    span {
+      margin-right: 10px;
+    }
+
+    p {
+      margin-left: 10px;
+    }
+
+    button + button {
+      margin-left: 40px;
+    }
+  }
+`;
+
+export const DivCartEmpty = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  h2 {
+    font-family: "Roboto";
+    font-size: 1.2rem;
+  }
+
+  svg {
+    width: 100px;
+    height: 120px;
+  }
+`;
