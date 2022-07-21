@@ -101,7 +101,7 @@ export const ListItem = styled.li`
   }
 
   p {
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-top: 20px;
     font-family: "Roboto";
     text-align: center;
@@ -130,19 +130,22 @@ export const ListItem = styled.li`
     width: 100%;
     align-items: center;
     justify-content: space-between;
-
   }
 
   @media (min-width: 1024px) {
-    p, h2 {
-    font-size: 1.2rem;
-  }
+    p
+    {
+      font-size: 0.9rem;
+    }
 
-  span {
-    font-size: 1rem;
-  }
+    h2 {
+      font-size: 1.2rem;
 
+    }
 
+    span {
+      font-size: 1rem;
+    }
   }
 `;
 
@@ -165,17 +168,14 @@ export const FooterHome = styled.footer`
   }
 
   @media (min-width: 1024px) {
-  padding: 5rem;
+    padding: 5rem;
 
-  p {
-    font-size: 1rem;
-    width: 100%;
-
+    p {
+      font-size: 1rem;
+      width: 100%;
+    }
   }
-
-  }
-
-`
+`;
 export const Devs = styled.section`
   display: flex;
   align-items: flex-end;
@@ -187,7 +187,7 @@ export const Devs = styled.section`
 
   div {
     display: flex;
-    align-items: center
+    align-items: center;
   }
 
   h2 {
@@ -208,19 +208,18 @@ export const Devs = styled.section`
 
   @media (min-width: 1024px) {
     h2 {
-    font-size: 0.9rem;
-
+      font-size: 0.9rem;
     }
   }
 `;
 
 export const Stars = styled.img`
-      margin-right: 20px;
-      margin-bottom: 10px;
-`
+  margin-right: 20px;
+  margin-bottom: 10px;
+`;
 
 export const IMGProduct = styled.img`
-    width: 100%;
-    height: 150px;
-    border-radius: 10px 10px 0px 0px;
-`
+  width: 100%;
+  height: 150px;
+  border-radius: 10px 10px 0px 0px;
+`;
