@@ -26,7 +26,6 @@ export const CartProvider = ({ children }) => {
       });
       setCart(mapList);
       localStorage.setItem("@Solid:cart", JSON.stringify(mapList));
-      console.log(cart);
     }
   };
 

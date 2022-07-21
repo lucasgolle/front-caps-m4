@@ -12,12 +12,10 @@ import {
 } from "./style";
 import { XCircle } from "react-feather";
 import Button from "../button";
-import coquinha from "../../assets/cocacola.png";
 
 import React, { useContext } from "react";
 import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
-import api from "../../services/api";
 import { BsFillCartXFill } from "react-icons/bs";
 import { toast } from "react-toastify";
 import axios from "axios";
@@ -25,7 +23,7 @@ import axios from "axios";
 const Cart = ({ closeCart }) => {
   const tokenUser = JSON.parse(localStorage.getItem("@Solid:token")) || "";
   const navigate = useNavigate();
-  const { cart, deleteCart, setCart } = useContext(CartContext);
+  const { cart, deleteCart } = useContext(CartContext);
 
   const getOrder = () => {
     const cartItems = JSON.parse(localStorage.getItem("@Solid:cart")) || [];
@@ -55,20 +53,12 @@ const Cart = ({ closeCart }) => {
         )
         .then((resp) => {
           window.location.replace(resp.data);
-          // if (tokenUser) {
-          //   localStorage.removeItem("@Solid:cart");
-          //   toast.success("Pedido enviado");
-          //   setCart([]);
-          //   // closeCart();
-          // }
         })
         .catch((err) => {
           console.log(err);
         });
     }
   };
-
-  console.log(cart);
 
   const sum = cart.reduce((previous, current) => {
     return previous + current.price * current.quantity;
