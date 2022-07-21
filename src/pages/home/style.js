@@ -104,9 +104,9 @@ export const ListItem = styled.li`
     font-size: 1rem;
     margin-top: 20px;
     font-family: "Roboto";
-    margin-bottom: 20px;
     text-align: center;
-    max-width: 95%;
+    width: 200px;
+    height: 70px;
   }
 
   span {

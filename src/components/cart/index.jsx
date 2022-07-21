@@ -101,7 +101,7 @@ const Cart = ({ closeCart }) => {
                       <div>
                         <p>{product.quantity}x</p>
                         <span>
-                          {sumProduct.toLocaleString("pt-BR", {
+                        {sumProduct.toLocaleString("pt-BR", {
                             style: "currency",
                             currency: "BRL",
                             minimumFractionDigits: 2,
