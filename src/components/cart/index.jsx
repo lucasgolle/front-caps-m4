@@ -14,6 +14,7 @@ import { CartContext } from "../../Providers/cart/";
 import { useNavigate } from "react-router-dom";
 import api from "../../services/api";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 const Cart = ({ closeCart }) => {
   const tokenUser = JSON.parse(localStorage.getItem("@Solid:token")) || "";
@@ -38,24 +39,25 @@ const Cart = ({ closeCart }) => {
     }
 
     if (tokenUser && cartItems.length !== 0) {
-      window.location.replace(
-        "https://www.mercadopago.com.br/checkout/v1/payment/redirect/?preference-id=217980688-471e8706-80c0-4166-955b-540260b5d7a2&router-request-id=0d81d483-a763-41b9-9866-a81ef5793f06"
-      );
-      // api
-      //   .post("/ticket", ticketData, {
-      //     headers: { Authorization: `Bearer ${tokenUser}` },
-      //   })
-      //   .then((resp) => {
-      //     if (tokenUser) {
-      //       localStorage.removeItem("@Solid:cart");
-      //       toast.success("Pedido enviado");
-      //       setCart([]);
-      //       // closeCart();
-      //     }
-      //   })
-      //   .catch((err) => {
-      //     console.log(err);
-      //   });
+   
+      axios
+        .get(`https://api-gamer-shop.herokuapp.com/payment/checkout/12354781/teste@yesye.com/${cartItems[0].name}/${sum}`, ticketData, {
+          headers: { Authorization: `Bearer ${tokenUser}` },
+        })
+        .then((resp) => {
+          window.location.replace(
+            resp.data
+          );
+          // if (tokenUser) {
+          //   localStorage.removeItem("@Solid:cart");
+          //   toast.success("Pedido enviado");
+          //   setCart([]);
+          //   // closeCart();
+          // }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 
@@ -79,7 +81,7 @@ const Cart = ({ closeCart }) => {
               const sumProduct = product.price * product.quantity;
               return (
                 <ListItem key={index}>
-                  <img src={coquinha} alt={product.name} />
+                  <img src={product.img} alt={product.name} />
                   <h2>{product.name}</h2>
                   <section>
                     <div>
