@@ -58,7 +58,7 @@ const HomePage = () => {
               <ListItem key={index}>
                 <IMGProduct src={product.img} alt={product.name} />
                 <h2>{product.name}</h2>
-                <p>Mande este produto incrível direto para o carrinho</p>
+                <p>{product.description}</p>
                 <div>
                   <span>
                     {product.price.toLocaleString("pt-BR", {
@@ -67,7 +67,7 @@ const HomePage = () => {
                       minimumFractionDigits: 2,
                     })}
                   </span>
-                  <Stars src={estrelas} alt="Avaliação ítem" />
+                  <Stars src={estrelas} alt="Avaliação item" />
                 </div>
                 <Button
                   onClick={() => {
