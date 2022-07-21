@@ -38,21 +38,24 @@ const Cart = ({ closeCart }) => {
     }
 
     if (tokenUser && cartItems.length !== 0) {
-      api
-        .post("/tickets", ticketData, {
-          headers: { Authorization: `Bearer ${tokenUser}` },
-        })
-        .then((resp) => {
-          if (tokenUser) {
-            localStorage.removeItem("@Solid:cart");
-            toast.success("Pedido enviado");
-            setCart([]);
-            closeCart();
-          }
-        })
-        .catch((err) => {
-          console.log(err);
-        });
+      window.location.replace(
+        "https://www.mercadopago.com.br/checkout/v1/payment/redirect/?preference-id=217980688-471e8706-80c0-4166-955b-540260b5d7a2&router-request-id=0d81d483-a763-41b9-9866-a81ef5793f06"
+      );
+      // api
+      //   .post("/ticket", ticketData, {
+      //     headers: { Authorization: `Bearer ${tokenUser}` },
+      //   })
+      //   .then((resp) => {
+      //     if (tokenUser) {
+      //       localStorage.removeItem("@Solid:cart");
+      //       toast.success("Pedido enviado");
+      //       setCart([]);
+      //       // closeCart();
+      //     }
+      //   })
+      //   .catch((err) => {
+      //     console.log(err);
+      //   });
     }
   };
 
