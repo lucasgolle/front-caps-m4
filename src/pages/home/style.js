@@ -117,12 +117,18 @@ export const ListItem = styled.li`
   }
 
   &:hover {
-    width: 278px;
-    transition: 0.6s;
+    transition: 1s;
     box-shadow: 14px 14px 20px #111111;
-    margin-left: 15px;
-    margin-right: 17px;
-    margin-top: 0px;
+    transform: scale(1.1);
+     -webkit-transition: all 200ms ease-in;
+    -webkit-transform: scale(1.1); 
+    -ms-transition: all 200ms ease-in;
+    -ms-transform: scale(1.1); 
+    -moz-transition: all 200ms ease-in;
+    -moz-transform: scale(1.1);
+    transition: all 200ms ease-in;    
+    margin-top: -15px;
+    
   }
 
   div {
