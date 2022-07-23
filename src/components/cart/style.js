@@ -53,6 +53,7 @@ export const ContainerCarrinho = styled.div`
   justify-content: space-evenly;
   animation: ${appearFromRight} 1s;
   padding: 2rem;
+  box-shadow: 14px 14px 14px 10px #111111;
   align-items: center;
 `;
 
@@ -93,6 +94,7 @@ export const LiCarrinho = styled.li`
   background: #ffffff;
   border: 3px solid #2b2d42;
   padding: 1rem 1rem 1rem 1rem;
+  margin-bottom: 1rem;
   border-radius: 10px;
 
   img {
